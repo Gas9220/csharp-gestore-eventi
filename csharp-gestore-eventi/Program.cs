@@ -47,7 +47,12 @@ while (userAnswer == "y")
     userAnswer = Console.ReadLine();
 }
 
+EventsProgram eventsProgram = new EventsProgram("Events program");
+eventsProgram.events.Add(newEvent);
 
+Console.Write("Search an event: ");
+DateTime dateToSearch = DateTime.Parse(Console.ReadLine());
+eventsProgram.GetEventsOnDate(dateToSearch);
 
 
 
