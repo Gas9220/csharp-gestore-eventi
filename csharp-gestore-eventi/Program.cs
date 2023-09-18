@@ -17,4 +17,5 @@ int eventMaxSeats = int.Parse(stringEventMaxSeats);
 Event newEvent = new Event(eventTitle, eventDate, eventMaxSeats);
 
 newEvent.BookSeats(50);
+newEvent.CancelSeats(200);
 

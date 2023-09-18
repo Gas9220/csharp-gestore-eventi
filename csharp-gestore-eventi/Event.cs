@@ -87,7 +87,20 @@ namespace csharp_gestore_eventi
             }
             else
             {
-                throw new ArgumentException($"You can book max {remainingSeats} seats");
+                throw new ArgumentOutOfRangeException($"You can book max {remainingSeats} seats");
+            }
+        }
+
+        public void CancelSeats(int numberOfSeats)
+        {
+            if (numberOfSeats <= BookedSeats)
+            {
+                BookedSeats -= numberOfSeats;
+                Console.WriteLine($"Congratulation you have cancelled n:{numberOfSeats} seat/s");
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException($"You can cancel max {BookedSeats} seats");
             }
         }
     }
