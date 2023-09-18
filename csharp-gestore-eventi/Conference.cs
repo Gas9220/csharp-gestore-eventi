@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,19 @@ namespace csharp_gestore_eventi
             Price = price;
         }
 
+        public string FormattedDate()
+        {
+            return Date.ToString("yyyy-MM-dd HH':'mm'");
+        }
+
+        public string FormattedPrice()
+        {
+            return Price.ToString("0.00");
+        }
+
+        public override string ToString()
+        {
+            return $"{FormattedDate()} - {Title} - {Speaker} - {FormattedPrice()}";
+        }
     }
 }
