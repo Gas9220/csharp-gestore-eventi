@@ -87,10 +87,36 @@ do
     }
 } while (!isNumber);
 
+EventsProgram myEventsProgram = new EventsProgram(programTitle);
+
 for (int i = 0; i < eventsNumber; i++)
 {
+    Console.WriteLine($"Create {i + 1}° event");
 
+    Console.Write("Event title: ");
+    string eventTitle = Console.ReadLine();
+
+    Console.Write("Event date: ");
+    string stringEventDate = Console.ReadLine();
+    DateTime eventDate = DateTime.Parse(stringEventDate);
+
+    Console.Write("Event max seats: ");
+    string stringEventMaxSeats = Console.ReadLine();
+    int eventMaxSeats = int.Parse(stringEventMaxSeats);
+
+    myEventsProgram.AddEvent(eventTitle, eventDate, eventMaxSeats);
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Helper functions - to move in another file
