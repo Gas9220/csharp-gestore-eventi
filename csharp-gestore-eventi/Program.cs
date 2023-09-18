@@ -57,11 +57,9 @@ eventsProgram.GetEventsOnDate(dateToSearch);
 Console.WriteLine(eventsProgram.GetProgramInfo());
 */
 
-string message = "";
+string programTitle = Helpers.checkValidString("What's the name of your events program? ", "Program must have a name");
 
-string programTitle = checkValidString("What's the name of your events program? ", "Program must have a name");
-
-int eventsNumber = checkValidInt("How many events would you like to add? ", "You should insert a number");
+int eventsNumber = Helpers.checkValidInt("How many events would you like to add? ", "You should insert a number");
 
 EventsProgram myEventsProgram = new EventsProgram(programTitle);
 
@@ -69,11 +67,11 @@ for (int i = 0; i < eventsNumber; i++)
 {
     Console.WriteLine($"Create {i + 1}° event");
 
-    string eventTitle = checkValidString("Event title: ", "Title can't be empty");
+    string eventTitle = Helpers.checkValidString("Event title: ", "Title can't be empty");
 
-    DateTime eventDate = checkValidDate("Event date (dd/MM/yyyy): ", "Insert the date in a valid format");
+    DateTime eventDate = Helpers.checkValidDate("Event date (dd/MM/yyyy): ", "Insert the date in a valid format");
 
-    int eventMaxSeats = checkValidInt("Event max seats: ", "This field can't be a string or 0");
+    int eventMaxSeats = Helpers.checkValidInt("Event max seats: ", "This field can't be a string or 0");
 
     myEventsProgram.AddEvent(eventTitle, eventDate, eventMaxSeats);
 }
@@ -81,76 +79,11 @@ for (int i = 0; i < eventsNumber; i++)
 Console.WriteLine($"Events count: {myEventsProgram.GetEventsCount()}");
 Console.WriteLine(myEventsProgram.GetProgramInfo());
 
-DateTime dateToSearch = checkValidDate("Search for an event: ", "Insert the date in a valid format");
+DateTime dateToSearch = Helpers.checkValidDate("Search for an event by date (dd/MM/yyyy): ", "Insert the date in a valid format");
 
 myEventsProgram.GetEventsOnDate(dateToSearch);
 
 myEventsProgram.ClearProgram();
 Console.WriteLine("All events have been cancelled");
-
-
-// Helper functions - to move in another file
-bool isNullEmptyWhiteSpace(string? text)
-{
-    if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text))
-    {
-        return true;
-    }
-
-    return false;
-}
-DateTime checkValidDate(string prompt, string message)
-{
-    bool isDate = false;
-    DateTime output;
-    do
-    {
-        Console.Write(prompt);
-        isDate = DateTime.TryParse(Console.ReadLine(), out output);
-
-        if (!isDate)
-        {
-            Console.WriteLine(message);
-        }
-    } while (!isDate);
-
-    return output;
-}
-
-string checkValidString(string prompt, string message)
-{
-    string output = "";
-    do
-    {
-        Console.Write(prompt);
-        output = Console.ReadLine();
-
-        if (isNullEmptyWhiteSpace(output))
-        {
-            Console.WriteLine(message);
-        }
-    } while (isNullEmptyWhiteSpace(output));
-
-    return output;
-}
-
-int checkValidInt(string prompt, string message)
-{
-    bool isNumber = false;
-    int output = 0;
-
-    do
-    {
-        Console.Write(prompt);
-        isNumber = Int32.TryParse(Console.ReadLine(), out output);
-
-        if (!isNumber)
-        {
-            Console.WriteLine(message);
-        }
-    } while (!isNumber || output == 0);
-
-    return output;
-}
 
 
