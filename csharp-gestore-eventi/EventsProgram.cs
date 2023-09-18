@@ -24,6 +24,13 @@ namespace csharp_gestore_eventi
             Console.WriteLine($"Congratulation you have added a new event {newEvent.ToString()}");
         }
 
+        public void AddConference(string title, DateTime date, int maxSeats, string speaker, int price)
+        {
+            Conference newConference = new Conference(title, date, maxSeats, speaker, price);
+            events.Add(newConference);
+            Console.WriteLine($"Congratulation you have added a new conference {newConference.ToString()}");
+        }
+
         public Event[] GetEventsOnDate(DateTime date)
         {
             List<Event> onDateEvents = new List<Event>();

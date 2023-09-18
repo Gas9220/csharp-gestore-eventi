@@ -83,7 +83,29 @@ DateTime dateToSearch = Helpers.checkValidDate("Search for an event by date (dd/
 
 myEventsProgram.GetEventsOnDate(dateToSearch);
 
-myEventsProgram.ClearProgram();
-Console.WriteLine("All events have been cancelled");
+//myEventsProgram.ClearProgram();
+//Console.WriteLine("All events have been cancelled");
 
+Console.WriteLine("BONUS");
 
+int conferencesNumber = Helpers.checkValidInt("How many conferences would you like to add? ", "You should insert a number");
+
+for (int i = 0; i < conferencesNumber; i++)
+{
+    Console.WriteLine($"Create {i + 1}° conference");
+
+    string conferenceTitle = Helpers.checkValidString("Conference title: ", "Title can't be empty");
+
+    DateTime conferenceDate = Helpers.checkValidDate("Conference date (dd/MM/yyyy): ", "Insert the date in a valid format");
+
+    int conferenceMaxSeats = Helpers.checkValidInt("Conference max seats: ", "This field can't be a string or 0");
+
+    string conferenceSpeaker = Helpers.checkValidString("Who is the speaker: ", "This field can't be empty");
+
+    int conferencePrice = Helpers.checkValidInt("Conference price: ", "This field can't be a string or 0");
+
+    myEventsProgram.AddConference(conferenceTitle, conferenceDate, conferenceMaxSeats, conferenceSpeaker, conferencePrice);
+}
+
+Console.WriteLine($"Events count: {myEventsProgram.GetEventsCount()}");
+Console.WriteLine(myEventsProgram.GetProgramInfo());

@@ -19,7 +19,7 @@ namespace csharp_gestore_eventi
 
         public string FormattedDate()
         {
-            return Date.ToString("yyyy-MM-dd HH':'mm'");
+            return Date.ToString("yyyy/MM/dd HH':'mm");
         }
 
         public string FormattedPrice()
