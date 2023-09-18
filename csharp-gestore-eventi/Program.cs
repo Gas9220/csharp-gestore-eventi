@@ -143,6 +143,11 @@ for (int i = 0; i < eventsNumber; i++)
     myEventsProgram.AddEvent(eventTitle, eventDate, eventMaxSeats);
 }
 
+Console.WriteLine($"Events count: {myEventsProgram.GetEventsCount()}");
+Console.WriteLine(myEventsProgram.GetProgramInfo());
+
+
+
 
 
 
