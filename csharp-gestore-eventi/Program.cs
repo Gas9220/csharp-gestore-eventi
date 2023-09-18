@@ -65,12 +65,12 @@ do
     Console.Write("What's the name of your events program? ");
     programTitle = Console.ReadLine();
 
-    if (isNotNullEmptyWhiteSpace(programTitle))
+    if (isNullEmptyWhiteSpace(programTitle))
     {
         message = "Title can't be empty";
         Console.WriteLine(message);
     }
-} while (isNotNullEmptyWhiteSpace(programTitle));
+} while (isNullEmptyWhiteSpace(programTitle));
 
 int eventsNumber;
 bool isNumber = false;
@@ -87,10 +87,14 @@ do
     }
 } while (!isNumber);
 
+for (int i = 0; i < eventsNumber; i++)
+{
+
+}
 
 
 // Helper functions - to move in another file
-bool isNotNullEmptyWhiteSpace(string? text)
+bool isNullEmptyWhiteSpace(string? text)
 {
     if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text))
     {
