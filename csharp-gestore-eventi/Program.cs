@@ -1,5 +1,7 @@
 ﻿using csharp_gestore_eventi;
 
+// PRE MILESTONE 4
+
 /* Console.WriteLine("Create new event");
 
 Console.Write("Event title: ");
@@ -57,6 +59,8 @@ eventsProgram.GetEventsOnDate(dateToSearch);
 Console.WriteLine(eventsProgram.GetProgramInfo());
 */
 
+
+// FROM MILESTONE 4 TO BONUS
 string programTitle = Helpers.checkValidString("What's the name of your events program? ", "Program must have a name");
 
 int eventsNumber = Helpers.checkValidInt("How many events would you like to add? ", "You should insert a number");
