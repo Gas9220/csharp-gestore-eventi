@@ -38,19 +38,43 @@ namespace csharp_gestore_eventi
 
             if (onDateEvents.Count > 0)
             {
-                PrintAllEvents(onDateEvents);
+                GetAllEvents(onDateEvents);
             }
 
             return onDateEvents.ToArray();
         }
 
-        public void PrintAllEvents(List<Event> events)
+        static void GetAllEvents(List<Event> events)
         {
             Console.WriteLine("Here is the events list:");
             foreach (var ev in events)
             {
                 Console.WriteLine(ev.ToString());
             }
+        }
+
+        public int GetEventsCount()
+        {
+            return events.Count;
+        }
+
+        public void ClearProgram()
+        {
+            events.Clear();
+        }
+
+        public string GetProgramInfo()
+        {
+            string output = $@"
+{title}
+";
+
+            foreach (Event ev in events)
+            {
+                output += $"\n{ev.ToString()}";
+            }
+
+            return output;
         }
     }
 }

@@ -54,5 +54,7 @@ Console.Write("Search an event: ");
 DateTime dateToSearch = DateTime.Parse(Console.ReadLine());
 eventsProgram.GetEventsOnDate(dateToSearch);
 
+Console.WriteLine(eventsProgram.GetProgramInfo());
+
 
 
