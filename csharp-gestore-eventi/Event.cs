@@ -75,5 +75,20 @@ namespace csharp_gestore_eventi
             MaxSeats = maxSeats;
             BookedSeats = 0;
         }
+
+        public void BookSeats(int numberOfSeats)
+        {
+            int remainingSeats = maxSeats - BookedSeats;
+
+            if (numberOfSeats <= remainingSeats)
+            {
+                BookedSeats += numberOfSeats;
+                Console.WriteLine($"Congratulation you have booked n:{numberOfSeats} seat/s");
+            }
+            else
+            {
+                throw new ArgumentException($"You can book max {remainingSeats} seats");
+            }
+        }
     }
 }
