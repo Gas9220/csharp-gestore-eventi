@@ -83,7 +83,7 @@ namespace csharp_gestore_eventi
             if (numberOfSeats <= remainingSeats)
             {
                 BookedSeats += numberOfSeats;
-                Console.WriteLine($"Congratulation you have booked n:{numberOfSeats} seat/s");
+                Console.WriteLine($"Congratulation you have booked n:{numberOfSeats} of seat/s");
             }
             else
             {
@@ -109,6 +109,12 @@ namespace csharp_gestore_eventi
             string formattedDate = date.ToString("dd/MM/yyyy");
             string formattedString = $"{formattedDate} - {title}";
             return formattedString;
+        }
+
+        public void GetEventSeatsRecap()
+        {
+            Console.WriteLine($"Booked seats = {BookedSeats}");
+            Console.WriteLine($"Remaining seats = {maxSeats - BookedSeats}");
         }
     }
 }
