@@ -125,7 +125,6 @@ for (int i = 0; i < eventsNumber; i++)
 
     } while (!isDate);
 
-
     int eventMaxSeats = 0;
 
     do
@@ -146,9 +145,26 @@ for (int i = 0; i < eventsNumber; i++)
 Console.WriteLine($"Events count: {myEventsProgram.GetEventsCount()}");
 Console.WriteLine(myEventsProgram.GetProgramInfo());
 
+bool isDate2 = false;
+DateTime dateToSearch;
 
+do
+{
+    Console.Write("Search for an event: ");
+    isDate2 = DateTime.TryParse(Console.ReadLine(), out dateToSearch);
 
+    if (!isDate2)
+    {
+        message = "Insert the date in a valid format";
+        Console.WriteLine(message);
+    }
 
+} while (!isDate2);
+
+myEventsProgram.GetEventsOnDate(dateToSearch);
+
+myEventsProgram.ClearProgram();
+Console.WriteLine("All events have been cancelled");
 
 
 
