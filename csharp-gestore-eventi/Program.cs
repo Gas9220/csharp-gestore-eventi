@@ -87,22 +87,58 @@ do
     }
 } while (!isNumber);
 
+isNumber = false;
+
 EventsProgram myEventsProgram = new EventsProgram(programTitle);
 
 for (int i = 0; i < eventsNumber; i++)
 {
     Console.WriteLine($"Create {i + 1}° event");
 
-    Console.Write("Event title: ");
-    string eventTitle = Console.ReadLine();
+    string eventTitle = "";
 
-    Console.Write("Event date: ");
-    string stringEventDate = Console.ReadLine();
-    DateTime eventDate = DateTime.Parse(stringEventDate);
+    do
+    {
+        Console.Write("Event title: ");
+        eventTitle = Console.ReadLine();
 
-    Console.Write("Event max seats: ");
-    string stringEventMaxSeats = Console.ReadLine();
-    int eventMaxSeats = int.Parse(stringEventMaxSeats);
+        if (isNullEmptyWhiteSpace(eventTitle))
+        {
+            message = "Title can't be empty";
+            Console.WriteLine(message);
+        }
+    } while (isNullEmptyWhiteSpace(eventTitle));
+
+    bool isDate = false;
+    DateTime eventDate;
+
+    do
+    {
+        Console.Write("Event date (dd/MM/yyyy): ");
+        isDate = DateTime.TryParse(Console.ReadLine(), out eventDate);
+
+        if (!isDate)
+        {
+            message = "Insert the date in a valid format";
+            Console.WriteLine(message);
+        }
+
+    } while (!isDate);
+
+
+    int eventMaxSeats = 0;
+
+    do
+    {
+        Console.Write("Event max seats: ");
+        isNumber = Int32.TryParse(Console.ReadLine(), out eventMaxSeats);
+
+        if (!isNumber)
+        {
+            message = "This field can't be a string or 0";
+            Console.WriteLine(message);
+        }
+    } while (!isNumber || eventMaxSeats == 0);
 
     myEventsProgram.AddEvent(eventTitle, eventDate, eventMaxSeats);
 }
