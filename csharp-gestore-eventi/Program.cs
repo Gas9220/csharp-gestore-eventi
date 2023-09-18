@@ -88,6 +88,8 @@ do
 } while (!isNumber);
 
 
+
+// Helper functions - to move in another file
 bool isNotNullEmptyWhiteSpace(string? text)
 {
     if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text))
