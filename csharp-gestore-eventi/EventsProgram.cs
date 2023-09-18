@@ -16,5 +16,12 @@ namespace csharp_gestore_eventi
             this.title = title;
             events = new List<Event>();
         }
+
+        public void AddEvent(string title, DateTime date, int maxSeats)
+        {
+            Event newEvent = new Event(title, date, maxSeats);
+            events.Add(newEvent);
+            Console.WriteLine($"Congratulation you have added a new event {newEvent.ToString()}");
+        }
     }
 }
