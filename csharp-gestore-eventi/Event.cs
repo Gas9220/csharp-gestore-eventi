@@ -103,5 +103,12 @@ namespace csharp_gestore_eventi
                 throw new ArgumentOutOfRangeException($"You can cancel max {BookedSeats} seats");
             }
         }
+
+        public override string ToString()
+        {
+            string formattedDate = date.ToString("dd/MM/yyyy");
+            string formattedString = $"{formattedDate} - {title}";
+            return formattedString;
+        }
     }
 }
