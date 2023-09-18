@@ -40,10 +40,18 @@ namespace csharp_gestore_eventi
                 }
                 else
                 {
-                    throw new ArgumentException("MaxSeat can't be negative");
+                    throw new ArgumentException("MaxSeats can't be negative");
                 }
             }
         }
         public int BookedSeats { get; private set; }
+
+        public Event(string title, DateTime date, int maxSeats)
+        {
+            Title = title;
+            Date = date;
+            MaxSeats = maxSeats;
+            BookedSeats = 0;
+        }
     }
 }
