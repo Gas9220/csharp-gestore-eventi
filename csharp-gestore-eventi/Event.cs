@@ -8,9 +8,42 @@ namespace csharp_gestore_eventi
 {
     internal class Event
     {
-        public string Title;
-        public DateTime Date;
-        public int MaxSeats;
-        public int BookedSeats;
+        public string Title
+        {
+            get
+            {
+                return Title;
+            }
+            set
+            {
+                if (value.Length > 0)
+                {
+                    Title = value;
+                } else
+                {
+                    throw new ArgumentException("Title can't be empty");
+                }
+            }
+        }
+        public DateTime Date { get; set; }
+        public int MaxSeats
+        {
+            get
+            {
+                return MaxSeats;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    MaxSeats = value;
+                }
+                else
+                {
+                    throw new ArgumentException("MaxSeat can't be negative");
+                }
+            }
+        }
+        public int BookedSeats { get; private set; }
     }
 }
