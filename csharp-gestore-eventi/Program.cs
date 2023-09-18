@@ -1,6 +1,6 @@
 ﻿using csharp_gestore_eventi;
 
-Console.WriteLine("Create new event");
+/* Console.WriteLine("Create new event");
 
 Console.Write("Event title: ");
 string eventTitle = Console.ReadLine();
@@ -55,6 +55,48 @@ DateTime dateToSearch = DateTime.Parse(Console.ReadLine());
 eventsProgram.GetEventsOnDate(dateToSearch);
 
 Console.WriteLine(eventsProgram.GetProgramInfo());
+*/
+
+string message = "";
+
+string programTitle = "";
+do
+{
+    Console.Write("What's the name of your events program? ");
+    programTitle = Console.ReadLine();
+
+    if (isNotNullEmptyWhiteSpace(programTitle))
+    {
+        message = "Title can't be empty";
+        Console.WriteLine(message);
+    }
+} while (isNotNullEmptyWhiteSpace(programTitle));
+
+int eventsNumber;
+bool isNumber = false;
+
+do
+{
+    Console.Write("How many events would you like to add? ");
+    isNumber = Int32.TryParse(Console.ReadLine(), out eventsNumber);
+
+    if (!isNumber)
+    {
+        message = "You should insert a number";
+        Console.WriteLine(message);
+    }
+} while (!isNumber);
+
+
+bool isNotNullEmptyWhiteSpace(string? text)
+{
+    if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text))
+    {
+        return true;
+    }
+
+    return false;
+}
 
 
 
